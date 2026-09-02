@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Local Call Recorder</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Local-only</p>
+      <h1>Call recorder</h1>
+      <p class="sub">Meet + Teams capture. Files stay on this device.</p>
+    </header>
+
+    <section class="panel warning">
+      <strong>Before recording</strong>
+      <label><input id="consent" type="checkbox"> I have a lawful basis/consent to record this call.</label>
+      <label><input id="notice" type="checkbox"> Participants have been notified where required.</label>
+      <label><input id="popia" type="checkbox"> I accept POPIA handling duties for exported files.</label>
+      <textarea id="note" rows="3" placeholder="Optional consent/context note"></textarea>
+    </section>
+
+    <section class="panel">
+      <label><input id="mic" type="checkbox"> Include my microphone audio</label>
+      <p class="hint">Chrome may ask for mic permission. Tab audio/video is captured locally.</p>
+    </section>
+
+    <section class="status" id="status">Checking status…</section>
+
+    <div class="actions">
+      <button id="start">Start local recording</button>
+      <button id="stop" class="secondary">Stop + export</button>
+      <button id="transcript" class="secondary">Export transcript</button>
+    </div>
+
+    <footer>No cloud. No telemetry. No remote transcription.</footer>
+  </main>
+  <script src="popup.js" type="module"></script>
+</body>
+</html>

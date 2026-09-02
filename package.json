@@ -1,0 +1,13 @@
+{
+  "name": "local-call-recorder",
+  "version": "0.1.0",
+  "description": "Local-only Chrome extension for recording Google Meet and Microsoft Teams calls with transcript export.",
+  "type": "module",
+  "scripts": {
+    "test": "node test/static-policy.test.mjs",
+    "package": "node scripts/package-extension.mjs"
+  },
+  "keywords": ["chrome-extension", "google-meet", "microsoft-teams", "local-only", "popia"],
+  "license": "MIT",
+  "devDependencies": {}
+}

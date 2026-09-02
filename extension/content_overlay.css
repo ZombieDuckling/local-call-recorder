@@ -1,0 +1,15 @@
+#local-call-recorder-live-flag {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 2147483647;
+  padding: 9px 12px;
+  background: #7f1d1d;
+  color: #fff7ed;
+  border: 2px solid #fecaca;
+  border-radius: 0;
+  font: 700 12px/1.1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: 0.08em;
+  box-shadow: 0 6px 0 #111827;
+  pointer-events: none;
+}
