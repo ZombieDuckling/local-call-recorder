@@ -1,0 +1,5 @@
+
+> local-call-recorder@0.2.0 package:extension
+> node scripts/package-extension.mjs
+
+Wrote dist/local-call-recorder-extension.zip

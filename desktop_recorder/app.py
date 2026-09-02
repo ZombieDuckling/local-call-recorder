@@ -97,10 +97,12 @@ class RecorderApp(tk.Tk):
                 if not self.video_devices:
                     self.video_devices = [("1", "Capture screen 0")]
                 if not self.audio_devices:
-                    self.audio_devices = [("0", "Default microphone")]
+                    self.audio_devices = [("none", "No microphone detected")]
+                    self.include_mic.set(False)
             except Exception as exc:
                 self.video_devices = [("1", "Capture screen 0")]
-                self.audio_devices = [("0", "Default microphone")]
+                self.audio_devices = [("none", "No microphone detected")]
+                self.include_mic.set(False)
                 self._append_log(f"Device detection fallback: {exc}")
         elif platform.system() == "Windows":
             self.video_devices = [("desktop", "Entire desktop")]

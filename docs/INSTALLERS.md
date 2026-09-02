@@ -1,43 +1,50 @@
-# Installer distribution
+# Installers
 
-Local Call Recorder includes a desktop setup helper for non-technical users. The
-helper is packaged as a macOS DMG and a Windows installer. The intended user
-path requires no Terminal, no GitHub knowledge, and no command-line tools.
+Local Call Recorder's main user path is a non-Electron desktop recorder app.
+Users do not need Git, GitHub, Terminal, Node.js, Python, or FFmpeg.
 
-## What the installer can do
+## Current release
 
-The setup app gives users buttons for the full non-terminal path:
+Download pilot installers from:
 
-1. Open Chrome's extension setup page.
-2. Show the prepared extension folder.
-3. Save the packaged extension zip for IT handoff.
-4. Convert local WebM recordings to MP4 on the device.
+https://github.com/ZombieDuckling/local-call-recorder/releases/tag/v0.2.0
 
-## Chrome's required approval step
+Assets:
 
-Chrome does not allow a normal consumer installer to silently add an unpacked
-extension. This is a browser security rule. The user must approve extension
-loading in Chrome, or an organisation must deploy the extension with Chrome
-enterprise policy.
+- `Local-Call-Recorder-macOS-arm64.dmg` — macOS Apple Silicon DMG.
+- `Local-Call-Recorder-Windows-x64-Setup.exe` — Windows x64 setup wizard.
 
-For public one-click distribution, publish the extension through the Chrome Web
-Store. For managed company devices, use Chrome enterprise policy deployment.
+These builds are currently unsigned, so macOS Gatekeeper and Windows SmartScreen warnings are expected until production signing is added.
 
-## User path
+## User flow
 
-A non-technical user follows this path:
+1. Open the Mac DMG or Windows setup wizard.
+2. Launch **Local Call Recorder**.
+3. Click **Start recording**.
+4. Grant Screen Recording / Microphone permission if the OS asks.
+5. Click **Stop + Save**.
+6. Find the MP4 locally:
+   - macOS: `Movies/Local Call Recorder`
+   - Windows: `Videos/Local Call Recorder`
 
-1. Download the macOS DMG or Windows installer.
-2. Open **Local Call Recorder Setup**.
-3. Click **Open Chrome setup**.
-4. Click **Show recorder folder**.
-5. In Chrome, choose the highlighted `extension` folder.
-6. Pin **Local Call Recorder** and start recording meetings.
+## Build macOS locally
 
-No terminal is required.
+```bash
+./scripts/build-macos-desktop.sh
+```
 
-## Production recommendation
+Output:
 
-Use the helper app for pilots and internal testing. For a consumer-grade release,
-ship through the Chrome Web Store so installation becomes a normal browser
-install flow.
+- `release-desktop/Local-Call-Recorder-macOS-arm64.dmg`
+
+## Build Windows in GitHub Actions
+
+Workflow:
+
+- `.github/workflows/build-desktop-windows.yml`
+
+The workflow creates the Windows setup EXE as an artifact. The published v0.2.0 release was created from that artifact.
+
+## Optional Chrome extension fallback
+
+The Chrome extension remains in `extension/` for browser-tab audio and visible-caption capture. It is not the main install path anymore.
