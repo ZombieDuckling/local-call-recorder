@@ -1,8 +1,9 @@
 # Local Call Recorder
 
-Local Call Recorder is a Chrome Manifest V3 extension for recording Google Meet
-and Microsoft Teams calls on Windows and macOS. It saves call recordings and
-caption transcripts to the device through Chrome Downloads.
+Local Call Recorder is a local-only desktop recorder for non-technical users on
+macOS and Windows. It records screen/call activity to local video files and keeps
+all data on the device. A Chrome extension remains available as an optional
+browser-tab/caption capture path, but the main user path is the desktop app.
 
 The project is built for local-only data handling. It has no cloud backend, no
 analytics, no telemetry, no hidden upload path, and no remote transcription API.
@@ -10,18 +11,40 @@ analytics, no telemetry, no hidden upload path, and no remote transcription API.
 ## Download installers
 
 Download the current pilot installers from the
-[Local Call Recorder v0.1.0 release](https://github.com/ZombieDuckling/local-call-recorder/releases/tag/v0.1.0):
+[Local Call Recorder releases](https://github.com/ZombieDuckling/local-call-recorder/releases):
 
-- macOS Apple Silicon: `Local-Call-Recorder-Setup-macOS-arm64.dmg`
-- Windows installer: `Local-Call-Recorder-Setup-Windows-x64-installer.exe`
-- Windows portable app: `Local-Call-Recorder-Setup-Windows-x64-portable.exe`
+- macOS desktop recorder: `Local-Call-Recorder-macOS.dmg`
+- Windows desktop recorder: `Local-Call-Recorder-Windows-x64-Setup.exe`
+- Optional Chrome extension fallback: `local-call-recorder-extension.zip`
 
 The installers are unsigned pilot builds. macOS Gatekeeper and Windows
 SmartScreen warnings are expected until production signing is added.
 
+## Install from the website
+
+Non-technical users don't need GitHub, Git, or Terminal. Send them to the public
+install page:
+
+https://zombieduckling.github.io/local-call-recorder/
+
+The website gives them large Mac and Windows download buttons and explains the
+one required Chrome approval step.
+
 > **Warning:** Recording calls can create legal and privacy obligations. You must
 > have a lawful basis, notify participants where required, and handle exported
 > files according to POPIA and any other applicable law or workplace policy.
+
+
+## Desktop recorder
+
+The desktop app is the main non-technical product. Users open the app, click
+**Start recording**, then click **Stop + save**. The app saves recordings locally
+to `Movies/Local Call Recorder` on macOS or `Videos/Local Call Recorder` on
+Windows.
+
+macOS uses Apple's native screen recording path and prompts for Screen Recording
+and Microphone permissions. Windows uses a packaged FFmpeg recorder and an
+installer wizard.
 
 ## Mac install walkthrough
 

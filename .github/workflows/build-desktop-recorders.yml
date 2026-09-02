@@ -1,0 +1,42 @@
+name: Build desktop recorders
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  mac:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --upgrade pip
+      - run: pip install -r requirements-build.txt
+      - run: pyinstaller --noconfirm --windowed --name "Local Call Recorder" --collect-all imageio_ffmpeg desktop_launcher.py --distpath dist-desktop --workpath build/pyinstaller
+      - run: mkdir -p release-desktop/dmg-root && cp -R "dist-desktop/Local Call Recorder.app" release-desktop/dmg-root/ && ln -s /Applications release-desktop/dmg-root/Applications
+      - run: hdiutil create -volname "Local Call Recorder" -srcfolder release-desktop/dmg-root -ov -format UDZO release-desktop/Local-Call-Recorder-macOS.dmg
+      - uses: actions/upload-artifact@v4
+        with:
+          name: local-call-recorder-desktop-macos
+          path: release-desktop/*
+
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --upgrade pip
+      - run: pip install -r requirements-build.txt
+      - run: pyinstaller --noconfirm --windowed --name "Local Call Recorder" --collect-all imageio_ffmpeg desktop_launcher.py --distpath dist-desktop --workpath build/pyinstaller
+      - run: choco install innosetup --no-progress -y
+      - shell: pwsh
+        run: '& "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" packaging\windows\installer.iss'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: local-call-recorder-desktop-windows
+          path: release-desktop/*
