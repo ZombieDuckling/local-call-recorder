@@ -2,14 +2,15 @@
   "name": "local-call-recorder",
   "version": "0.1.0",
   "description": "Local-only Chrome extension for recording Google Meet and Microsoft Teams calls with transcript export.",
+  "author": "Joshua Sack",
   "type": "module",
   "scripts": {
     "test": "node test/static-policy.test.mjs",
     "package:extension": "node scripts/package-extension.mjs",
     "package": "npm run package:extension",
     "app:smoke": "node --check installer/main.js && node --check installer/preload.js && node --check installer/renderer.js",
-    "dist:mac": "npm run package:extension && CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder --mac dmg zip",
-    "dist:win": "npm run package:extension && electron-builder --win nsis portable",
+    "dist:mac": "npm run package:extension && CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder --mac dmg zip --publish never",
+    "dist:win": "npm run package:extension && electron-builder --win nsis portable --publish never",
     "dist:all": "npm run dist:mac && npm run dist:win"
   },
   "keywords": [
