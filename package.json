@@ -23,7 +23,8 @@
   "license": "MIT",
   "devDependencies": {
     "electron": "^44.1.1",
-    "electron-builder": "^26.0.12"
+    "electron-builder": "^26.0.12",
+    "yazl": "^3.3.1"
   },
   "main": "installer/main.js",
   "build": {
