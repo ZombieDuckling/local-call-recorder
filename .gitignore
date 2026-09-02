@@ -11,3 +11,4 @@ release-desktop/
 *.mov
 *.mp4
 *.pdf
+.tmp/

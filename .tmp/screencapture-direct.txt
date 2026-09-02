@@ -1,1 +1,0 @@
-screencapture_exit=1

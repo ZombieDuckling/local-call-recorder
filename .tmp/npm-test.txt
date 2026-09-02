@@ -1,5 +1,0 @@
-
-> local-call-recorder@0.2.0 test
-> node test/static-policy.test.mjs
-
-Static local-only policy passed for 10 extension files.
