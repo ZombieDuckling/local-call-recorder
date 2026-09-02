@@ -5,9 +5,76 @@
   "type": "module",
   "scripts": {
     "test": "node test/static-policy.test.mjs",
-    "package": "node scripts/package-extension.mjs"
+    "package:extension": "node scripts/package-extension.mjs",
+    "package": "npm run package:extension",
+    "app:smoke": "node --check installer/main.js && node --check installer/preload.js && node --check installer/renderer.js",
+    "dist:mac": "npm run package:extension && CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder --mac dmg zip",
+    "dist:win": "npm run package:extension && electron-builder --win nsis portable",
+    "dist:all": "npm run dist:mac && npm run dist:win"
   },
-  "keywords": ["chrome-extension", "google-meet", "microsoft-teams", "local-only", "popia"],
+  "keywords": [
+    "chrome-extension",
+    "google-meet",
+    "microsoft-teams",
+    "local-only",
+    "popia"
+  ],
   "license": "MIT",
-  "devDependencies": {}
+  "devDependencies": {
+    "electron": "^44.1.1",
+    "electron-builder": "^26.0.12"
+  },
+  "main": "installer/main.js",
+  "build": {
+    "appId": "za.co.localcallrecorder.app",
+    "productName": "Local Call Recorder Setup",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "installer/**/*",
+      "extension/**/*",
+      "dist/local-call-recorder-extension.zip",
+      "README.md",
+      "docs/**/*",
+      "package.json",
+      "LICENSE"
+    ],
+    "extraMetadata": {
+      "main": "installer/main.js"
+    },
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "dmg": {
+      "title": "Local Call Recorder Setup"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Local Call Recorder Setup"
+    }
+  }
 }

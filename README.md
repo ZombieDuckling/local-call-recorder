@@ -31,9 +31,31 @@ included script if `pandoc` is installed.
 
 No file leaves your device unless you manually share the exported files.
 
-## Install in Chrome
+## Install without Terminal
 
-Use these steps on Windows or macOS:
+Use the desktop setup helper for non-technical users. The helper is packaged as
+macOS and Windows installers through GitHub Actions.
+
+A user follows this path:
+
+1. Download the macOS DMG or Windows installer from the release artifacts.
+2. Open **Local Call Recorder Setup**.
+3. Click **Open Chrome setup page**.
+4. Click **Show extension folder**.
+5. In Chrome, click **Load unpacked** and select the highlighted `extension`
+   folder.
+6. Pin **Local Call Recorder** from the Chrome extensions menu.
+
+No terminal is required.
+
+> **Note:** Chrome does not allow normal consumer installers to silently install
+> unpacked extensions. The setup helper gets the user to the one required Chrome
+> approval step. For true one-click public distribution, publish the extension in
+> the Chrome Web Store. For managed devices, use Chrome enterprise policy.
+
+## Install manually for development
+
+Use these steps only if you're working on the source code:
 
 1. Download or clone this repository.
 2. Open `chrome://extensions` in Chrome.

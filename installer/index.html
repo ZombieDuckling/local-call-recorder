@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Local Call Recorder Setup</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Local-only · POPIA-aware</p>
+        <h1>Install Local Call Recorder without touching Terminal.</h1>
+        <p class="lead">This setup app gets non-technical users to the only browser-required approval step: loading the extension in Chrome.</p>
+      </div>
+      <div class="badge">No cloud<br>No telemetry<br>No uploads</div>
+    </section>
+
+    <section class="grid">
+      <article class="card primary">
+        <span class="step">1</span>
+        <h2>Open Chrome extensions</h2>
+        <p>We open the exact Chrome page. The user only switches on Developer mode and chooses the prepared folder.</p>
+        <button id="openChrome">Open Chrome setup page</button>
+      </article>
+      <article class="card">
+        <span class="step">2</span>
+        <h2>Show extension folder</h2>
+        <p>Use this button when Chrome asks which folder to load. Select the highlighted <code>extension</code> folder.</p>
+        <button id="showFolder">Show extension folder</button>
+      </article>
+      <article class="card">
+        <span class="step">3</span>
+        <h2>Save extension zip</h2>
+        <p>For IT handoff or email distribution, save the ready-made extension zip locally.</p>
+        <button id="saveZip">Save extension zip</button>
+      </article>
+      <article class="card">
+        <span class="step">4</span>
+        <h2>Convert recording to MP4</h2>
+        <p>Pick a locally recorded WebM file and convert it to MP4 on this computer. Nothing uploads.</p>
+        <button id="convert">Choose WebM and convert</button>
+      </article>
+    </section>
+
+    <section class="panel">
+      <h2>Chrome's approval rule</h2>
+      <p>Chrome does not allow a normal installer to silently add an unpacked extension for consumers. That is good for safety. The closest non-technical path is this setup helper plus one visible Chrome approval step.</p>
+      <p>For true one-click public distribution, publish the extension in the Chrome Web Store. For company-managed machines, use Chrome enterprise policy deployment.</p>
+    </section>
+
+    <section class="status" id="status">Ready.</section>
+  </main>
+  <script src="renderer.js" type="module"></script>
+</body>
+</html>

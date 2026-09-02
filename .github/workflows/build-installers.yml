@@ -1,0 +1,39 @@
+name: Build installers
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  mac:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm test
+      - run: npm run app:smoke
+      - run: npm run dist:mac
+      - uses: actions/upload-artifact@v4
+        with:
+          name: local-call-recorder-macos
+          path: release/*
+
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm test
+      - run: npm run app:smoke
+      - run: npm run dist:win
+      - uses: actions/upload-artifact@v4
+        with:
+          name: local-call-recorder-windows
+          path: release/*
