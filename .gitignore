@@ -1,7 +1,13 @@
 node_modules/
+.venv-desktop/
+build/
 dist/
+dist-desktop/
 release/
+release-desktop/
+*.spec
 .DS_Store
 *.webm
+*.mov
 *.mp4
 *.pdf

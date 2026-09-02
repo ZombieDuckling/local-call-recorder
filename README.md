@@ -11,11 +11,11 @@ analytics, no telemetry, no hidden upload path, and no remote transcription API.
 ## Download installers
 
 Download the current pilot installers from the
-[Local Call Recorder releases](https://github.com/ZombieDuckling/local-call-recorder/releases):
+[Local Call Recorder Desktop v0.2.0 release](https://github.com/ZombieDuckling/local-call-recorder/releases/tag/v0.2.0):
 
-- macOS desktop recorder: `Local-Call-Recorder-macOS.dmg`
+- macOS desktop recorder: `Local-Call-Recorder-macOS-arm64.dmg`
 - Windows desktop recorder: `Local-Call-Recorder-Windows-x64-Setup.exe`
-- Optional Chrome extension fallback: `local-call-recorder-extension.zip`
+- Optional Chrome extension fallback remains available in the older v0.1.0 release.
 
 The installers are unsigned pilot builds. macOS Gatekeeper and Windows
 SmartScreen warnings are expected until production signing is added.
@@ -27,8 +27,8 @@ install page:
 
 https://zombieduckling.github.io/local-call-recorder/
 
-The website gives them large Mac and Windows download buttons and explains the
-one required Chrome approval step.
+The website gives them large Mac and Windows download buttons and explains that
+recordings stay local on their computer.
 
 > **Warning:** Recording calls can create legal and privacy obligations. You must
 > have a lawful basis, notify participants where required, and handle exported
@@ -46,27 +46,17 @@ macOS uses Apple's native screen recording path and prompts for Screen Recording
 and Microphone permissions. Windows uses a packaged FFmpeg recorder and an
 installer wizard.
 
-## Mac install walkthrough
+## Desktop app walkthrough
 
-These illustrated walkthrough images show the macOS installer flow. A non-technical user does
-not need Terminal or GitHub.
+These illustrated walkthrough images show the simple desktop-recorder flow. A
+non-technical user does not need Terminal or GitHub.
 
-1. Open the DMG installer.
-
-   ![Illustrated macOS DMG window showing Local Call Recorder Setup and Applications](docs/images/macos-01-dmg-open.png)
-
-2. Open **Local Call Recorder Setup**. The helper gives three large buttons.
-
-   ![Illustrated Local Call Recorder Setup helper with simple three-step install UI](docs/images/macos-02-setup-helper.png)
-
-3. Click **Open Chrome setup**. Chrome opens the extensions page.
-
-   ![Illustrated Chrome extensions page during Local Call Recorder setup](docs/images/macos-03-chrome-extensions.png)
-
-4. Click **Show recorder folder** and choose the highlighted `extension` folder
-   when Chrome asks which folder to load.
-
-   ![Illustrated Finder window showing the Local Call Recorder extension folder](docs/images/macos-04-extension-folder.png)
+1. Download and open the Mac or Windows installer.
+2. Launch **Local Call Recorder**.
+3. Click **Start recording** before the call.
+4. Click **Stop + save** when the call ends.
+5. Find the saved video in `Movies/Local Call Recorder` on macOS or
+   `Videos/Local Call Recorder` on Windows.
 
 ## What it records
 
