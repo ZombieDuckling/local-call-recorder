@@ -13,25 +13,25 @@ analytics, no telemetry, no hidden upload path, and no remote transcription API.
 
 ## Mac install walkthrough
 
-These screenshots show the real macOS installer flow. A non-technical user does
+These illustrated walkthrough images show the macOS installer flow. A non-technical user does
 not need Terminal or GitHub.
 
 1. Open the DMG installer.
 
-   ![macOS DMG window showing Local Call Recorder Setup and Applications](docs/images/macos-01-dmg-open.png)
+   ![Illustrated macOS DMG window showing Local Call Recorder Setup and Applications](docs/images/macos-01-dmg-open.png)
 
 2. Open **Local Call Recorder Setup**. The helper gives three large buttons.
 
-   ![Local Call Recorder Setup helper with simple three-step install UI](docs/images/macos-02-setup-helper.png)
+   ![Illustrated Local Call Recorder Setup helper with simple three-step install UI](docs/images/macos-02-setup-helper.png)
 
 3. Click **Open Chrome setup**. Chrome opens the extensions page.
 
-   ![Chrome extensions page during Local Call Recorder setup](docs/images/macos-03-chrome-extensions.png)
+   ![Illustrated Chrome extensions page during Local Call Recorder setup](docs/images/macos-03-chrome-extensions.png)
 
 4. Click **Show recorder folder** and choose the highlighted `extension` folder
    when Chrome asks which folder to load.
 
-   ![Finder showing the Local Call Recorder extension folder](docs/images/macos-04-extension-folder.png)
+   ![Illustrated Finder window showing the Local Call Recorder extension folder](docs/images/macos-04-extension-folder.png)
 
 ## What it records
 
