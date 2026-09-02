@@ -7,6 +7,18 @@ caption transcripts to the device through Chrome Downloads.
 The project is built for local-only data handling. It has no cloud backend, no
 analytics, no telemetry, no hidden upload path, and no remote transcription API.
 
+## Download installers
+
+Download the current pilot installers from the
+[Local Call Recorder v0.1.0 release](https://github.com/ZombieDuckling/local-call-recorder/releases/tag/v0.1.0):
+
+- macOS Apple Silicon: `Local-Call-Recorder-Setup-macOS-arm64.dmg`
+- Windows installer: `Local-Call-Recorder-Setup-Windows-x64-installer.exe`
+- Windows portable app: `Local-Call-Recorder-Setup-Windows-x64-portable.exe`
+
+The installers are unsigned pilot builds. macOS Gatekeeper and Windows
+SmartScreen warnings are expected until production signing is added.
+
 > **Warning:** Recording calls can create legal and privacy obligations. You must
 > have a lawful basis, notify participants where required, and handle exported
 > files according to POPIA and any other applicable law or workplace policy.
