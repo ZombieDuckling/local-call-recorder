@@ -11,6 +11,28 @@ analytics, no telemetry, no hidden upload path, and no remote transcription API.
 > have a lawful basis, notify participants where required, and handle exported
 > files according to POPIA and any other applicable law or workplace policy.
 
+## Mac install walkthrough
+
+These screenshots show the real macOS installer flow. A non-technical user does
+not need Terminal or GitHub.
+
+1. Open the DMG installer.
+
+   ![macOS DMG window showing Local Call Recorder Setup and Applications](docs/images/macos-01-dmg-open.png)
+
+2. Open **Local Call Recorder Setup**. The helper gives three large buttons.
+
+   ![Local Call Recorder Setup helper with simple three-step install UI](docs/images/macos-02-setup-helper.png)
+
+3. Click **Open Chrome setup**. Chrome opens the extensions page.
+
+   ![Chrome extensions page during Local Call Recorder setup](docs/images/macos-03-chrome-extensions.png)
+
+4. Click **Show recorder folder** and choose the highlighted `extension` folder
+   when Chrome asks which folder to load.
+
+   ![Finder showing the Local Call Recorder extension folder](docs/images/macos-04-extension-folder.png)
+
 ## What it records
 
 The extension captures the active Meet or Teams browser tab after you press
@@ -40,8 +62,8 @@ A user follows this path:
 
 1. Download the macOS DMG or Windows installer from the release artifacts.
 2. Open **Local Call Recorder Setup**.
-3. Click **Open Chrome setup page**.
-4. Click **Show extension folder**.
+3. Click **Open Chrome setup**.
+4. Click **Show recorder folder**.
 5. In Chrome, click **Load unpacked** and select the highlighted `extension`
    folder.
 6. Pin **Local Call Recorder** from the Chrome extensions menu.

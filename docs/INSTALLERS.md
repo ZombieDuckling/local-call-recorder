@@ -1,7 +1,8 @@
 # Installer distribution
 
 Local Call Recorder includes a desktop setup helper for non-technical users. The
-helper is packaged as a macOS DMG and a Windows installer.
+helper is packaged as a macOS DMG and a Windows installer. The intended user
+path requires no Terminal, no GitHub knowledge, and no command-line tools.
 
 ## What the installer can do
 
@@ -27,14 +28,11 @@ Store. For managed company devices, use Chrome enterprise policy deployment.
 A non-technical user follows this path:
 
 1. Download the macOS DMG or Windows installer.
-2. Open the installer.
-3. Launch **Local Call Recorder Setup**.
-4. Click **Open Chrome setup page**.
-5. Turn on **Developer mode** if using the unpacked pilot build.
-6. Click **Load unpacked**.
-7. Click **Show extension folder** in the setup app.
-8. Select the highlighted `extension` folder.
-9. Pin **Local Call Recorder** in Chrome.
+2. Open **Local Call Recorder Setup**.
+3. Click **Open Chrome setup**.
+4. Click **Show recorder folder**.
+5. In Chrome, choose the highlighted `extension` folder.
+6. Pin **Local Call Recorder** and start recording meetings.
 
 No terminal is required.
 
