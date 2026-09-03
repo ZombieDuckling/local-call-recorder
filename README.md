@@ -86,7 +86,7 @@ This is not the main user install path.
 
 ## Local-only assurance
 
-The static policy test fails the build if extension source contains obvious network or tracking primitives:
+The static policy test fails the build if extension source contains obvious network or tracking primitives, and also scans the desktop Python entrypoints for obvious network/upload/telemetry imports or literals:
 
 - `fetch(`
 - `XMLHttpRequest`
@@ -101,6 +101,8 @@ Run checks:
 npm test
 python3 -m py_compile desktop_launcher.py desktop_recorder/*.py
 ```
+
+CI also syntax-checks the desktop Python recorder with `py_compile` so privacy-policy checks do not pass while the main local app is broken.
 
 No file leaves the device unless the user manually shares an exported recording or transcript.
 
