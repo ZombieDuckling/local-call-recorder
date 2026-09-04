@@ -52,12 +52,31 @@ for (const file of files) {
 
 const manifest = JSON.parse(readFileSync(join(extensionRoot, 'manifest.json'), 'utf8'));
 const allowedHosts = ['https://meet.google.com/*', 'https://teams.microsoft.com/*'];
-for (const host of manifest.host_permissions || []) {
+const hostPermissions = manifest.host_permissions || [];
+for (const host of hostPermissions) {
   if (!allowedHosts.includes(host)) failures.push(`Unexpected host permission: ${host}`);
+}
+if (hostPermissions.length !== allowedHosts.length) {
+  failures.push(`Expected exactly ${allowedHosts.length} host permissions, found ${hostPermissions.length}`);
 }
 const allowedPermissions = new Set(['activeTab', 'tabCapture', 'downloads', 'storage', 'offscreen', 'scripting']);
 for (const permission of manifest.permissions || []) {
   if (!allowedPermissions.has(permission)) failures.push(`Unexpected permission: ${permission}`);
+}
+const deniedManifestKeys = [
+  'externally_connectable',
+  'oauth2',
+  'optional_host_permissions',
+  'optional_permissions',
+  'update_url'
+];
+for (const key of deniedManifestKeys) {
+  if (Object.hasOwn(manifest, key)) failures.push(`Unexpected manifest key: ${key}`);
+}
+for (const script of manifest.content_scripts || []) {
+  for (const match of script.matches || []) {
+    if (!allowedHosts.includes(match)) failures.push(`Unexpected content script match: ${match}`);
+  }
 }
 
 for (const file of desktopFiles) {
