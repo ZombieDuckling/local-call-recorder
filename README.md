@@ -86,7 +86,7 @@ This is not the main user install path.
 
 ## Local-only assurance
 
-The static policy test fails the build if extension source contains obvious network or tracking primitives:
+The static policy test fails the build if extension source contains obvious network or tracking primitives, if the manifest expands host access beyond Meet/Teams, if optional remote-access permission surfaces are added, or if the desktop Python entrypoints contain obvious network/upload/telemetry imports or literals:
 
 - `fetch(`
 - `XMLHttpRequest`
@@ -94,6 +94,7 @@ The static policy test fails the build if extension source contains obvious netw
 - `sendBeacon`
 - common analytics SDK names
 - `http://` or `https://` endpoint literals outside allowlisted Meet/Teams host permissions in `manifest.json`
+- manifest keys such as `externally_connectable`, `optional_permissions`, `optional_host_permissions`, `oauth2`, or `update_url`
 
 Run checks:
 
@@ -101,6 +102,8 @@ Run checks:
 npm test
 python3 -m py_compile desktop_launcher.py desktop_recorder/*.py
 ```
+
+CI also syntax-checks the desktop Python recorder with `py_compile` so privacy-policy checks do not pass while the main local app is broken.
 
 No file leaves the device unless the user manually shares an exported recording or transcript.
 
